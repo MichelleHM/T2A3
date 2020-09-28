@@ -19,28 +19,28 @@ def sun_protection():
         crt_value = current_uv()
         try:  
             if (crt_value <=2):
-                print(f"With a UV rating of {crt_value},no sun protection is required - UV level is safe.\n")
+                return(f"With a UV rating of {crt_value},no sun protection is required - UV level is safe.\n")
             elif (2< crt_value <= 5 ):
-                print(f"With a UV rating of {crt_value}, sun protection required - Moderate risk of sun damage from unprotected sun exposure.\n")
+                return(f"With a UV rating of {crt_value}, sun protection required - Moderate risk of sun damage from unprotected sun exposure.\n")
             elif (5 < crt_value <=7 ):
-                print(f"With a UV rating of {crt_value}, sun protection required - High risk of sun damage.\n")
+                return(f"With a UV rating of {crt_value}, sun protection required - High risk of sun damage.\n")
             elif (7 < crt_value <= 10):
-                print(f"With a UV rating of {crt_value}, extra sun-proteciton required - Very high risk of sun damage.\n Minimise sun exposure between 10am and 4pm.\n")
+                return(f"With a UV rating of {crt_value}, extra sun-proteciton required - Very high risk of sun damage.\n Minimise sun exposure between 10am and 4pm.\n")
             else: 
-                print(f"At {crt_value} UVI, extra sun protection is required - Extreme risk of sun damage.\nEyes and skin can burn in minutes.\n")
+                return(f"At {crt_value} UVI, extra sun protection is required - Extreme risk of sun damage.\nEyes and skin can burn in minutes.\n")
         except TypeError:
-            print("There was an error with the inputted uv index")
+            return("There was an error with the inputted uv index")
 
 class skin:
     exposure = 200
     uv_index = current_uv()
-    radiation_intensity = (3 * uv_index )
     b_time = 0
 
     def __init__(self,name, damage):
         self.name = name
         self.damage = damage
-
+        self.radiation_intensity = (3 * self.uv_index )
+        
     def burn_time(self):
         """ calculation for minutes before specific skin type gets sun damage"""
         b_time = (self.exposure * self.damage) // self.radiation_intensity

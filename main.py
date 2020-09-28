@@ -13,11 +13,11 @@ if user_answer == "y":
     user_check = input("Check UV now? y/n \n").lower()
     # current_uv()
     skin_type_questions()
-    sun_protection() 
+    print(sun_protection())
     user_temperature = input("Would you like to see the forecasted weather?y/n\n").lower()
     if user_temperature == "y":
         current_temperature()
-        forecast_temp() 
+        forecast_temp()
     else:
         exit
 else:
