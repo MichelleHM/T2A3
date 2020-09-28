@@ -1,3 +1,10 @@
+#api information
+def api():
+    lat = -37.814
+    lon = 144.96332
+    api_key =  "77c58409917fba6ed7fbe651f700935f"
+    api_request = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={api_key}")
+    read_api = json.loads(api_request.text)
 
 # calling skin class and calculating time before sun burn for each skin type
 def skin_type_questions():

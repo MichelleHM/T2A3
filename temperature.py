@@ -1,3 +1,4 @@
+class 
 
 # Return current temperature and feels-like temperature
 def current_temperature():

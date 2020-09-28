@@ -12,6 +12,7 @@ api_key =  "77c58409917fba6ed7fbe651f700935f"
 api_request = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={api_key}")
 read_api = json.loads(api_request.text)
 
+
 #program start
 print("Please consider harms of sun damage.")
 user_answer=input("Are you intending to leave your home today? y/n\n").lower()
@@ -21,6 +22,7 @@ if user_answer == "y":
     user_check = input("Check UV now? y/n \n").lower()
     current_uv()
     #print skin questionnaire with time to burn here 
+    #input temperature for next seven days
     print(skin_type.skin_type_questions())
 else:
     print("Sun protection may not be needed. Take care of yourself today!")
