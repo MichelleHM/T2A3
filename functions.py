@@ -1,10 +1,54 @@
-#api information
-def api():
-    lat = -37.814
-    lon = 144.96332
-    api_key =  "77c58409917fba6ed7fbe651f700935f"
-    api_request = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={api_key}")
-    read_api = json.loads(api_request.text)
+import requests
+import json 
+
+# Melbourne geological coordinates for api request
+lat = -37.814
+lon = 144.96332
+api_key =  "77c58409917fba6ed7fbe651f700935f"
+api_request = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={api_key}")
+read_api = json.loads(api_request.text)
+
+
+def current_uv():
+        crt_uv = read_api["current"]["uvi"]
+        return crt_uv
+
+def sun_protection(): #how can i get this function to call current uv function for crt_uv
+        """If conditions reflecting uv index ratings according to australian government standards """
+        crt_value = current_uv()
+        try:  
+            if (crt_value <=2):
+                print("No sun protection required - UV level is safe.")
+            elif (2< crt_value <= 5 ):
+                print("Sun protection required - Moderate risk of sun damage from unprotected sun exposure.")
+            elif (5 < crt_value <=7 ):
+                print("Sun protection required - High risk of sun damage.")
+            elif (7 < crt_value <= 10):
+                print("Extra sun-proteciton required - Very high risk of sun damage.\n Minimise sun exposure between 10am and 4pm.")
+            else: 
+                print("Extra sun protection is required - Extreme risk of sun damage.\nEyes and skin can burn in minutes.")
+        except TypeError:
+            print("There was an error with the inputted uv index")
+
+class skin:
+    exposure = 200
+    uv_index = current_uv()
+    radiation_intensity = (3 * uv_index )
+    b_time = 0
+
+    def __init__(self,name, damage):
+        self.name = name
+        self.damage = damage
+
+    def burn_time(self):
+        """ calculation for minutes before specific skin type gets sun damage"""
+        b_time = (self.exposure * self.damage) // self.radiation_intensity
+        return b_time
+
+    @property 
+    def minutes_iteration(self):
+        """Time to burn changes with the skin type and current uv rating. """
+        return ("With today's uv rating, you have " + str(self.burn_time()) + "minutes before sun burn.")
 
 # calling skin class and calculating time before sun burn for each skin type
 def skin_type_questions():

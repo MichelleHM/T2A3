@@ -1,4 +1,3 @@
-from uv_info import current_uv
 
 class skin:
     exposure = 200

@@ -1,5 +1,5 @@
-class 
-
+class temperature:
+    
 # Return current temperature and feels-like temperature
 def current_temperature():
     crt_temp = read_api["current"]["temp"]
@@ -17,20 +17,3 @@ def forcast_temperature():
     except TypeError:
         return "There is a type error"
 
-
-# #current date and time
-# now = datetime.now()
-
-# now = datetime.now()
-
-# def current_time(self):
-#     """Convert datetime into string to retrieve minutes, hours, AM/PM."""
-#     print(now.strftime("%I:%M %p"))
-
-# def current_month(self):
-#     """Printing current month by using strftime() and formate code %B for displaying month."""
-#     print(now.strftime("%B"))  
-
-# def current_day(self):
-#     """Print current day with strftime() using code %A. """
-#     print(now.strftime("%A"))

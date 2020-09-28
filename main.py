@@ -1,17 +1,8 @@
 import requests
 import json 
-from forecast import forecast_temp
-import skin_type
+from functions import current_uv, skin_type_questions, sun_protection
 from datetime import date
 from datetime import datetime
-
-# Melbourne geological coordinates for api request
-lat = -37.814
-lon = 144.96332
-api_key =  "77c58409917fba6ed7fbe651f700935f"
-api_request = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={api_key}")
-read_api = json.loads(api_request.text)
-
 
 #program start
 print("Please consider harms of sun damage.")
@@ -23,11 +14,7 @@ if user_answer == "y":
     current_uv()
     #print skin questionnaire with time to burn here 
     #input temperature for next seven days
-    print(skin_type.skin_type_questions())
+    skin_type_questions()
+    sun_protection()
 else:
     print("Sun protection may not be needed. Take care of yourself today!")
-
-
-
- # print(f"The max UV rating for today is {crt_uv}.")
-
