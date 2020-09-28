@@ -2,12 +2,13 @@ import main
 
 class uv_index_information():
 # Accessing fields in api reposnse to retrieve uvi information.
+    @classmethod
     def current_uv():
         crt_uv = read_api["current"]["uvi"]
         return crt_uv
 
-
-class sun_protection:
+    @classmethod:
+    class sun_protection:
 
 def sun_protection(max_uv): #how can i get this function to call current uv function for crt_uv
     """If conditions reflecting uv index ratings according to australian government standards """

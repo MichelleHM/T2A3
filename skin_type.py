@@ -1,7 +1,8 @@
-import main
+from uv_info import current_uv
+
 class skin:
     exposure = 200
-    uv_index = main.current_uv()
+    uv_index = current_uv()
     radiation_intensity = (3 * uv_index )
     b_time = 0
 
