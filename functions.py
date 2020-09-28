@@ -1,5 +1,6 @@
 import requests
 import json 
+from datetime import date, datetime, timedelta
 
 # Melbourne geological coordinates for api request
 lat = -37.814
@@ -13,20 +14,20 @@ def current_uv():
         crt_uv = read_api["current"]["uvi"]
         return crt_uv
 
-def sun_protection(): #how can i get this function to call current uv function for crt_uv
+def sun_protection():
         """If conditions reflecting uv index ratings according to australian government standards """
         crt_value = current_uv()
         try:  
             if (crt_value <=2):
-                print("No sun protection required - UV level is safe.")
+                print(f"With a UV rating of {crt_value},no sun protection is required - UV level is safe.\n")
             elif (2< crt_value <= 5 ):
-                print("Sun protection required - Moderate risk of sun damage from unprotected sun exposure.")
+                print(f"With a UV rating of {crt_value}, sun protection required - Moderate risk of sun damage from unprotected sun exposure.\n")
             elif (5 < crt_value <=7 ):
-                print("Sun protection required - High risk of sun damage.")
+                print(f"With a UV rating of {crt_value}, sun protection required - High risk of sun damage.\n")
             elif (7 < crt_value <= 10):
-                print("Extra sun-proteciton required - Very high risk of sun damage.\n Minimise sun exposure between 10am and 4pm.")
+                print(f"With a UV rating of {crt_value}, extra sun-proteciton required - Very high risk of sun damage.\n Minimise sun exposure between 10am and 4pm.\n")
             else: 
-                print("Extra sun protection is required - Extreme risk of sun damage.\nEyes and skin can burn in minutes.")
+                print(f"At {crt_value} UVI, extra sun protection is required - Extreme risk of sun damage.\nEyes and skin can burn in minutes.\n")
         except TypeError:
             print("There was an error with the inputted uv index")
 
@@ -48,7 +49,7 @@ class skin:
     @property 
     def minutes_iteration(self):
         """Time to burn changes with the skin type and current uv rating. """
-        return ("With today's uv rating, you have " + str(self.burn_time()) + "minutes before sun burn.")
+        return ("With today's uv rating, you have " + str(self.burn_time()) + " minutes before sun burn.")
 
 # calling skin class and calculating time before sun burn for each skin type
 def skin_type_questions():
@@ -65,7 +66,7 @@ def skin_type_questions():
     [3] Fair to medium skin, light or medium coloured eyes, burns occasionally, sometimes tans.
     [4] Medium or olive (before sun exposure), dark eyes, medium-dark hair, rarely burns, tans often.
     [5] Medium to dark skin, dark eyes, dark hair, almost never burns, always tans.
-    [6] deeply pigmented dark skin, almost black eyes, black hair, never burns, always tans darkly.  """ ))
+    [6] deeply pigmented dark skin, almost black eyes, black hair, never burns, always tans darkly.\n""" ))
    
     try: 
         if skin_type == 1:
@@ -84,3 +85,15 @@ def skin_type_questions():
             print("No skin type was inputted.")
     except TypeError:
         print("THere has been a type error - change input to integer")
+
+def forecast_temp():
+    """For loop to concatenate forecasted temperature with future dates """
+    today = date.today()
+    current_day = today
+    try: 
+        for temperature in read_api["daily"]:
+            forecast_temp = temperature["temp"]["max"]
+            print(f"The temperature for {current_day} is {forecast_temp} degrees celsius.")
+            current_day= current_day + timedelta(days=1) 
+    except TypeError:
+        return "There is a type error"
