@@ -1,5 +1,3 @@
-import main
-
 class uv_index_information():
 # Accessing fields in api reposnse to retrieve uvi information.
     def __init__(self):

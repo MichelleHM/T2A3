@@ -1,3 +1,4 @@
+
 # calling skin class and calculating time before sun burn for each skin type
 def skin_type_questions():
     skin1 = skin("skin1",2.5)
