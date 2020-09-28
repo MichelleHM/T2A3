@@ -11,7 +11,7 @@ The application currently holds geographical coordinates for only ***Melbourne, 
 In the future, i hope to add more customisable features for users to access uv and temperature information from other locations. 
 
 ---
-#### What the application ACTUALLY does 
+# What the application ACTUALLY does 
 The application allows users to view the max uv rating for the current day.
 
 Users are then prompted to choose a skin type based on [Fitzgerald's skin phototype](https://www.arpansa.gov.au/sites/default/files/legacy/pubs/RadiationProtection/FitzpatrickSkinType.pdf). This selection is stored and used to calculate how long the user has before experiencing sun burn and a warning is given based on the UV index. 
@@ -21,7 +21,7 @@ Users are then prompted to choose a skin type based on [Fitzgerald's skin photot
 Lastly, a weather forecast is available for the next 7 days. 
 
 ---
-#### UVI Calculation 
+# UVI Calculation 
 The application has a feature which calculates the amount of time before sun damage occurs based on the user's skin type and the current daily uv rating. 
 
 The calculation of this uv rating is based on Fitzgerald's skin phototypes and uses the following formula. 
@@ -41,13 +41,13 @@ This estimated time is based on no sun protection, meaning if the user were to w
 
 --- 
 
-### Workflow
+# Workflow
 
 
 
 
-### Installation
-##### Dependencies
+# Installation
+## Dependencies
 These items are found within requirements.txt
 
 - certifi == 2020.6.20
@@ -70,7 +70,7 @@ These items are found within requirements.txt
 
 ---
 
-### Setup
+## Setup
 **Step 1**
 
 **Create a virtual environment** in your coding workspace that has access to the *Python* language. Run the following in your terminal.
