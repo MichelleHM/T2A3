@@ -89,7 +89,9 @@ Holding the damage variable constant by assigning a static numerical value to it
 
 The second test also holds the uv variable constant by assigning a static numerical value. The same principle applies to this test which leads to a more trustworthy test.  
 
-
+---
+# Flowchart 
+![flowchart](/docs/FLOWCHART.png)
 
 
 

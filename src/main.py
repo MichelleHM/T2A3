@@ -11,9 +11,11 @@ user_answer=input("Are you intending to leave your home today? y/n\n").lower()
 if user_answer == "y":
     print("Be mindful of the uv rays.")
     user_check = input("Check UV now? y/n \n").lower()
-    # current_uv()
-    skin_type_questions()
-    print(sun_protection())
+    if user_check == "y":
+        skin_type_questions()
+        print(sun_protection())
+    else:
+        exit
     user_temperature = input("Would you like to see the forecasted weather?y/n\n").lower()
     if user_temperature == "y":
         current_temperature()
