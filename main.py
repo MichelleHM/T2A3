@@ -1,6 +1,6 @@
 import requests
 import json 
-from functions import current_uv, skin_type_questions, sun_protection, forecast_temp
+from functions import current_uv, skin_type_questions, sun_protection, forecast_temp, current_temperature
 from datetime import date
 from datetime import datetime
 
@@ -16,6 +16,7 @@ if user_answer == "y":
     sun_protection() 
     user_temperature = input("Would you like to see the forecasted weather?y/n\n").lower()
     if user_temperature == "y":
+        current_temperature()
         forecast_temp() 
     else:
         exit

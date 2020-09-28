@@ -86,6 +86,11 @@ def skin_type_questions():
     except TypeError:
         print("THere has been a type error - change input to integer")
 
+def current_temperature():
+    crt_temp = read_api["current"]["temp"]
+    crt_feel = read_api["current"]["feels_like"]
+    print(f"The current temperature is {crt_temp} but feels like {crt_feel}.")
+
 def forecast_temp():
     """For loop to concatenate forecasted temperature with future dates """
     today = date.today()
