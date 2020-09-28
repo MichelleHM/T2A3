@@ -1,12 +1,12 @@
 # UV INDEX AWARENESS 
 A terminal app for everyday sun care and awareness! 
 
-### Description 
+# Description 
 This application retrieves data from [One Call API](https://openweathermap.org/api/one-call-api?gclid=EAIaIQobChMI-JDk-aKE7AIVZtOWCh0dswvAEAAYASAAEgJCR_D_BwE) for localised uv and temperature reports. 
 
 The application currently holds geographical coordinates for only ***Melbourne, Australia***. All the forecasts and output from this application will therefore be catered for this location. 
 
-![Geographical Coordinates](img\geographical_coordinates.PNG)
+![Geographical Coordinates](/img/geographical_coordinates.PNG)
 
 In the future, i hope to add more customisable features for users to access uv and temperature information from other locations. 
 
@@ -16,7 +16,7 @@ The application allows users to view the max uv rating for the current day.
 
 Users are then prompted to choose a skin type based on [Fitzgerald's skin phototype](https://www.arpansa.gov.au/sites/default/files/legacy/pubs/RadiationProtection/FitzpatrickSkinType.pdf). This selection is stored and used to calculate how long the user has before experiencing sun burn and a warning is given based on the UV index. 
 
-![Skin Types](img/skintype.png)
+![Skin Types](/img/skintype.PNG)
 
 Lastly, a weather forecast is available for the next 7 days. 
 
