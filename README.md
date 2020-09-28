@@ -40,12 +40,6 @@ Damage scores are dependant on the user's skin type. For example, a person with 
 This estimated time is based on no sun protection, meaning if the user were to wear sunscreen, the time before sun damage will increase. 
 
 --- 
-
-# Workflow
-
-
-
-
 # Installation
 ## Dependencies
 These items are found within requirements.txt
@@ -65,8 +59,6 @@ These items are found within requirements.txt
 **requests** allows the program to access information from the internet. 
 
 **urllib3** is a HTTP library that assists requests.  
-
-
 
 ---
 
@@ -88,7 +80,14 @@ python src/main.py
 ```
 
 ---
+# Testing
+Automated testing was created to check the application's consistency in producing accurate results and general functionality.
 
+The two tests are for the uv calculations mentioned above and skin type analysis output. All variables were held constant including the damage variable which is typically based on a changing uv index. 
+
+Holding the damage variable constant by assigning a static numerical value to it allows for consistent testing. This is because the result of the test will not change no matter when or where you test the program. By doing so, we can be assured the program is functioning properly as the test results will be the same each time. 
+
+The second test also holds the uv variable constant by assigning a static numerical value. The same principle applies to this test which leads to a more trustworthy test.  
 
 
 
